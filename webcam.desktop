@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=webcam
+GenericName=webcam
+Comment=webcam
+Exec="/opt/webcam/bin/webcam"
+Icon=webcam
+Terminal=false
+Categories=Network;
+StartupWMClass=webcam

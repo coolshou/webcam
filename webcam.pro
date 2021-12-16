@@ -32,3 +32,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     src/webcam.qrc
+
+DISTFILES += \
+    webcam.ini
+
+unix {
+    desktop.files  = webcam.desktop
+    desktop.path   = /usr/share/applications/
+    INSTALLS       += desktop
+}
