@@ -41,4 +41,7 @@ unix {
     desktop.files  = webcam.desktop
     desktop.path   = /usr/share/applications/
     INSTALLS       += desktop
+    images.files = src/images/webcam.png
+    images.path   = /usr/share/pixmaps/
+    INSTALLS       += images
 }
