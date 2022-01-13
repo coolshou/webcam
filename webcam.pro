@@ -55,8 +55,8 @@ unix {
 
 win32 {
     RC_ICONS = src/images/webcam.ico
-    DEPLOY_COMMAND += windeployqt
-    DEPLOY_TARGET = $$shell_quote($$shell_path($${OUT_PWD}/release/$${TARGET}
+    DEPLOY_COMMAND += $$shell_quote($$shell_path($$[QT_INSTALL_BINS]\windeployqt))
+    DEPLOY_TARGET = $$shell_quote($$shell_path($${OUT_PWD}/release/$${TARGET}.exe))
     QMAKE_POST_LINK = $${DEPLOY_COMMAND} $${DEPLOY_TARGET}
     
 }
