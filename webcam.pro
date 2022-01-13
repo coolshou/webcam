@@ -55,6 +55,5 @@ unix {
 
 win32 {
     RC_ICONS = src/images/webcam.ico
-    QMAKE_POST_LINK += "$(QTDIR)\bin\windeployqt.exe" "$(OutDir.TrimEnd('\'))" --$(Configuration.toLower())
-
+    CONFIG += windeployqt
 }
