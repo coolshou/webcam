@@ -2,9 +2,16 @@ QT     += core gui network webenginewidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
-QMAKE_LFLAGS += -no-pie
+VERSION = 0.0.1.0
+QMAKE_TARGET_COMPANY="coolshou.idv.tw"
+QMAKE_TARGET_DESCRIPTION="webcam for old ipcam"
+QMAKE_TARGET_COPYRIGHT="coolshou©2021"
+QMAKE_TARGET_PRODUCT="webcam"
 
+CONFIG += c++11
+unix {
+    QMAKE_LFLAGS += -no-pie
+}
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -44,4 +51,8 @@ unix {
     images.files = src/images/webcam.png
     images.path   = /usr/share/pixmaps/
     INSTALLS       += images
+}
+
+win32 {
+    RC_ICONS = src/images/webcam.ico
 }
