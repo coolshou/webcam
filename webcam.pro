@@ -56,7 +56,10 @@ unix {
 win32 {
     RC_ICONS = src/images/webcam.ico
     DEPLOY_COMMAND += $$shell_quote($$shell_path($$[QT_INSTALL_BINS]\windeployqt))
-    DEPLOY_TARGET = $$shell_quote($$shell_path($${OUT_PWD}/release/$${TARGET}.exe))
-    QMAKE_POST_LINK = $${DEPLOY_COMMAND} $${DEPLOY_TARGET}
+    DEPLOY_TARGET_EXE = $$shell_quote($$shell_path($${OUT_PWD}/release/$${TARGET}.exe))
+    DEPLOY_TARGET = $$shell_quote($$shell_path($${OUT_PWD}/release/$${TARGET}-$${VERSION}))
+    QMAKE_POST_LINK = $$quote(cmd /c if not exist "$${DEPLOY_TARGET}" mkdir "$${DEPLOY_TARGET}"$$escape_expand(\\n\\t))
+    QMAKE_POST_LINK += $$quote(cmd /c copy /y $${DEPLOY_TARGET_EXE} "$${DEPLOY_TARGET}\\" $$escape_expand(\\n\\t))
+    QMAKE_POST_LINK += $$quote(cmd /c $${DEPLOY_COMMAND} $${DEPLOY_TARGET}\\$${TARGET}.exe $$escape_expand(\\n\\t))
     
 }
